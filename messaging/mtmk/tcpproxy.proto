@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package mtmk;
+
+message Packet {
+  string host = 1;
+  int32 port = 2;
+  bytes payload = 3;
+}
+
+service TcpProxy {
+  rpc Open(stream Packet) returns (stream Packet){}
+}
